@@ -14,7 +14,7 @@ namespace BankNUnitTest
             account.Add(500);
 
             //ASSERT
-            Assert.AreEqual(1500, account.Balance);
+            Assert.That(account.Balance, Is.EqualTo(1500));
         }
 
         [Test]
@@ -27,8 +27,9 @@ namespace BankNUnitTest
             account.Withdraw(500);
 
             //ASSERT
-            Assert.AreEqual(500, account.Balance);
+            Assert.That(account.Balance, Is.EqualTo(500));
         }
+
         [Test]
         public void Transfering_Funds_Updates_Both_Accounts()
         {
@@ -40,8 +41,8 @@ namespace BankNUnitTest
             account.TransferFundsTo(otherAccount, 500);
 
             //ASSERT
-            Assert.AreEqual(500, account.Balance);
-            Assert.AreEqual(500, otherAccount.Balance);
+            Assert.That(account.Balance, Is.EqualTo(500));
+            Assert.That(otherAccount.Balance, Is.EqualTo(500));
         }
     }
-}
+} 
